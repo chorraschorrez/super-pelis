@@ -1,1 +1,8 @@
-<p>formulario works!</p>
+<div>
+    <input type="text" placeholder="Título" [(ngModel)]="pelicula.titulo" >
+    <input type="text" placeholder="Imagen"[(ngModel)]="pelicula.imagen" >
+    <input type="number" placeholder="Año" [(ngModel)]="pelicula.anyo" >
+    <button (click)="agregarPelicula()" >Agregar</button>
+    // Probar en navegador que funciona: ->   {{pelicula.titulo}}
+
+</div>
