@@ -17,11 +17,9 @@ export class GestorpeliculasService {
   getPeliculas(){
     return this.peliculas;
   }
-  
   agregarPelicula(nuevaPelicula:Pelicula){
     this.peliculas.push(nuevaPelicula);
     guardarPeliculas(this.peliculas);
-
   }
   eliminarPelicula(titulo:string){
     //TODO programar
@@ -29,9 +27,8 @@ export class GestorpeliculasService {
   modificarPelicula(titulo:string, peliculaModificada:Pelicula){
     //TODO programar
   }
-
-  
 }
+
 function guardarPeliculas(peliculas:Pelicula[]) {
   localStorage.setItem("peliculas",JSON.stringify(peliculas));
   
