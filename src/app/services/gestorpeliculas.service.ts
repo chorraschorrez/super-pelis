@@ -6,10 +6,21 @@ import { Pelicula } from '../interfaces/pelicula';
   providedIn: 'root'
 })
 export class GestorpeliculasService {
-  public peliculas:Pelicula[]=[];
-  constructor() { }
+  private peliculas:Pelicula[]=[];
+  peliculasAlmacenadas:string|null;
+  constructor() { 
+    this.peliculasAlmacenadas = localStorage.getItem("peliculas");
+    if ( this.peliculasAlmacenadas!=null ){
+      this.peliculas = JSON.parse(this.peliculasAlmacenadas);
+    }
+  }
+  getPeliculas(){
+    return this.peliculas;
+  }
+  
   agregarPelicula(nuevaPelicula:Pelicula){
     this.peliculas.push(nuevaPelicula);
+    guardarPeliculas(this.peliculas);
 
   }
   eliminarPelicula(titulo:string){
@@ -18,4 +29,10 @@ export class GestorpeliculasService {
   modificarPelicula(titulo:string, peliculaModificada:Pelicula){
     //TODO programar
   }
+
+  
+}
+function guardarPeliculas(peliculas:Pelicula[]) {
+  localStorage.setItem("peliculas",JSON.stringify(peliculas));
+  
 }

@@ -15,11 +15,12 @@ import { CommonModule } from '@angular/common';  // para ver el json visible, no
 export class FormularioComponent {
     pelicula:Pelicula = {};
     constructor(private servicioPeliculas:GestorpeliculasService){
-
+      this.pelicula
     }
 
     agregarPelicula(){
       console.log("Agregando película...");
+      // Obtenemos el servicio vía inyección (único para todos los componentes de ésta aplicación) 
       this.servicioPeliculas.agregarPelicula({...this.pelicula});  // "..." es notación de Angular para hacer copia del objeto y no apunte al real
     }
 }
