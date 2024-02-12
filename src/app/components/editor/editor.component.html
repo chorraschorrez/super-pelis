@@ -1,0 +1,9 @@
+<!--<p>editor works!</p> -->
+
+<ul>
+    <li *ngFor="let pelicula of listaPeliculas"> 
+        
+        <!-- <p>editor works!</p> -->
+        <a routerLink='/editar/{{pelicula.titulo}}'> {{pelicula.titulo}}  </a>
+    </li>
+</ul>
